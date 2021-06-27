@@ -9,7 +9,7 @@ int main(){
         long long a,b;
         cin>>a>>b;
         while(a<b){
-            a=a*10;
+            a=a+1;
         }
         if(a%b==0||a%b==1){
             cout<<"Yes";
