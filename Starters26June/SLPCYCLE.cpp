@@ -12,26 +12,27 @@ int main()
         string s;
         cin >> s;
         bool isSlept = false;
-      set<int>v;
-      for(int i=0;i<l;i++){
+        vector<int>v;
+        for(int i=0;i<l;i++){
           int c=0;
           while(i<l&&s[i]=='0'){
               c++;
               i++;
           }
           if(c!=0)
-          v.insert(c);
+          v.push_back(c);
       }
-      set<int>::iterator it;
-      for(it=v.begin();it!=v.end();it++){
-           if(v.find(h)!=v.end()){
-               isSlept=true;
-               break;
-           }
-           h=2*(h-*it);
-           v.erase(it);
 
-      }
+     for(int i=0;i<v.size();i++){
+         if(v[i]>=h){
+             isSlept=true;
+             break;
+         }
+         int temp=2*(h-v[i]);
+         if(temp<h){
+             h=temp;
+         }
+     }
       if(isSlept==true)
       cout<<"Yes";
       else{
